@@ -8,7 +8,7 @@ secret = ARGV[0]
 
 def kms_decrypt_credentials(cipher_text)
     kms = Aws::KMS::Client.new
-      kms.decrypt({ciphertext_blob: Base64.decode64(cipher_text)}).plaintext
+    kms.decrypt({ciphertext_blob: Base64.decode64(cipher_text)}).plaintext
 end
 
 abort("Need encrypted ciphertext blob!") unless !secret.nil?
